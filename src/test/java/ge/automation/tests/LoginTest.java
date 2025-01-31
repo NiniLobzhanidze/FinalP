@@ -17,8 +17,8 @@ public class LoginTest extends BaseTest {
 
         String expectedUrl = "https://www.saucedemo.com/inventory.html";
         String actualUrl = driver.getCurrentUrl();
-        Assert.assertEquals(actualUrl, expectedUrl, "URL არ ემთხვევა");
 
+        Assert.assertEquals(actualUrl, expectedUrl, "URL არ ემთხვევა");
 
 
     }
@@ -29,8 +29,10 @@ public class LoginTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         String expectedSize = "24px";
         String actualSize = loginPage.getAppLogoSize();
+
         Assert.assertEquals(actualSize, expectedSize, "ზომა არ ემთხვევა");
     }
+
     }
 
 

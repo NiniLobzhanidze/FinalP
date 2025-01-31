@@ -1,12 +1,12 @@
 package ge.automation;
 
+import ge.automation.utils.Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.internal.Utils;
 
 import java.time.Duration;
 
@@ -21,14 +21,16 @@ public class BasePage {
 
     }
     public void enterText(WebElement locator, String text){
+        waitForElementToBeClickable(locator);
         locator.sendKeys(text);
-        Utils.log("მოვძებნე ელემენტი: [" + locator + " ] გადავეცი ტექსტი: " + text);
+        Utils.log("მოვძებნე ელემენტი: [ " + locator + " ] გადავეცი ტექსტი: " + text);
 
 
     }
     public void clickToElement(WebElement locator){
         locator.click();
-        Utils.log("დავაკლიკე [" + locator + " ] ელემენტზე");
+        //Utils.log("დავაკლიკე [" + locator + " ] ელემენტზე");
+
 
     }
     public void clickToElementWithWait(WebElement locator) {
@@ -38,8 +40,9 @@ public class BasePage {
 
     }
     public void waitForElementToBeClickable(WebElement locator){
-
+        Utils.log("ველოდები რომ ელემენტი [ " + locator + " ] გახდეს დაკლიკებადი");
         wait.until(ExpectedConditions.elementToBeClickable(locator));
+        Utils.log("ვიპოვე ელემენტი [ " + locator + " ] ");
 
 
     }
@@ -50,6 +53,8 @@ public class BasePage {
 
     }
     public void waitForElementToBeVisible(WebElement locator){
+        Utils.log("ველოდები რომ ელემენტი [ " + locator + " ] გამოჩნდეს");
+        Utils.log("ელემენტი [ " + locator + " ] გამოჩნდა");
 
         wait.until(ExpectedConditions.visibilityOf(locator));
 

@@ -1,5 +1,6 @@
 package ge.automation;
 
+import ge.automation.utils.ConfigReader;
 import ge.automation.utils.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
@@ -15,6 +16,9 @@ public class BaseTest {
         driver = DriverManager.getDriver();
         driver.manage().window().maximize();
         driver.get("https://saucedemo.com");
+
+
+
     }
     @AfterMethod
     public void tearDown(){
